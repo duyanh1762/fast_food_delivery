@@ -1,7 +1,7 @@
 <header class="navbar">
   <div class="logo">
     <img
-      src="https://img.freepik.com/premium-photo/cartoon-fast-food-restaurant-logo-with-hamburger-fries_947814-97739.jpg?semt=ais_hybrid"
+      src="assets/images/logo_shop.avif"
       alt="Logo"
     />
   </div>
@@ -13,9 +13,47 @@
   <div class="nav-icons">
     <!-- <i class="fa-solid fa-user"></i>
     <i class="fa-solid fa-bars"></i> -->
-    <img src="https://cdn-icons-png.freepik.com/256/1077/1077114.png?semt=ais_hybrid" alt="">
-    <img src="https://icons.veryicon.com/png/o/miscellaneous/unicons/bars-1.png" alt="">
+    <img src="assets/images/icon_users.png" >
+    <img (click)="openNav()" src="assets/images/icon_bars.png" >
   </div>
 </header>
+
+<div #navigation class="navigation">
+  <div class="menu-header">
+    <div class="menu-icon" >≡</div>
+    <div class="menu-close" (click)="closeNav()">✕</div>
+  </div>
+  <div class="menu-section">
+    <h3>DANH MỤC MÓN ĂN</h3>
+    <ul>
+      <li>Gà rán ›</li>
+      <li>Mỳ ý ›</li>
+      <li>Burger ›</li>
+      <li>Pizza ›</li>
+    </ul>
+  </div>
+  <div class="menu-section">
+    <h3>VỀ CHÚNG TÔI</h3>
+    <ul>
+      <li>Tin Khuyến Mãi ›</li>
+      <li>Tuyển dụng ›</li>
+      <li>Đặt tiệc Sinh nhật ›</li>
+    </ul>
+  </div>
+  <div class="menu-section">
+    <h3>LIÊN HỆ</h3>
+    <ul>
+      <li>Facebook ›</li>
+      <li>Zalo ›</li>
+    </ul>
+  </div>
+  <div class="menu-section">
+    <h3>CHÍNH SÁCH</h3>
+    <ul>
+      <li>Chính sách hoạt động ›</li>
+      <li>Chính sách VS-ATTP ›</li>
+    </ul>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
