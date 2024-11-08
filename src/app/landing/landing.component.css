@@ -1,0 +1,124 @@
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+header {
+  /* background: url('https://lambanner.com/wp-content/uploads/2022/10/MNT-DESIGN-BANNER-DEP-DOWNLOAD-MIEN-PHI-update.jpg') no-repeat center center/cover; */
+  background-color: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  text-align: center;
+  margin: 20px;
+  padding-top: 10%;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  height: 60%;
+  border: black solid 2px;
+  box-sizing: border-box;
+}
+.content .main-p{
+  font-size: 40px;
+  font-weight: 600;
+}
+.content i {
+  width:50px;
+  height: 50px;
+}
+.pricing-table {
+  margin: 40px 0 40px;
+  height: auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+table {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  width: 33.33%;
+  height: 50px;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+.testimonials {
+  background-color: #f0f0f0;
+  padding: 40px;
+}
+.testimonials h2{
+  text-align: center;
+}
+.testimonial {
+  display: flex;
+  justify-content: space-around;
+}
+.testimonial div {
+  margin: 10px;
+  text-align: center;
+  border-bottom: gray solid 1px;
+}
+.testimonial div img{
+  width:100px;
+  height: 100px;
+  border-radius: 50%;
+}
+i{
+  font-size: 30px;
+  color: palevioletred;
+}
+.name{
+  font-weight: 600;
+}
+.comment{
+  max-width: 300px;
+}
+/* .job{
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+} */
+@media (max-width: 768px) {
+  .content{
+      width: 80vw;
+      height: 40vh;
+  }
+  .content .main-p{
+      font-size: 26px;
+  }
+  .pricing-table{
+      flex-direction: column;
+  }
+  .pricing-table{
+      height:auto;
+  }
+  .testimonials{
+      flex-wrap: wrap;
+      padding: 40px 0 0 0;
+  }
+  .testimonial{
+      min-width: 100vw;
+      display: flex;
+      flex-wrap: wrap;
+  }
+}
