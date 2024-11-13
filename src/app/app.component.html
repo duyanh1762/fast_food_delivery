@@ -13,7 +13,7 @@
   <div class="nav-icons">
     <!-- <i class="fa-solid fa-user"></i>
     <i class="fa-solid fa-bars"></i> -->
-    <img src="assets/images/icon_users.png" >
+    <img (click)="login()" src="assets/images/icon_users.png" >
     <img (click)="openNav()" src="assets/images/icon_bars.png" >
   </div>
 </header>
@@ -54,6 +54,11 @@
       <li>Chính sách VS-ATTP ›</li>
     </ul>
   </div>
+</div>
+
+<div class="cart-icon" (click)="openCart()" *ngIf="api.cartShow === true">
+  <img src="assets/images/6831.png_860.png" >
+  <span class="cart-count">3</span>
 </div>
 
 <router-outlet></router-outlet>
