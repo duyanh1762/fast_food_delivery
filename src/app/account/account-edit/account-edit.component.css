@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+main h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dob select {
+  display: inline-block;
+  width: 30%;
+  margin-right: 5px;
+}
+
+.dob select:last-child {
+  margin-right: 0;
+}
+
+button.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #e4002b;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background-color: #cc0025;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column;
+  }
+
+  .sidebar {
+      text-align: center;
+  }
+}

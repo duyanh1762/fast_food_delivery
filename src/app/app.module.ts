@@ -8,6 +8,8 @@ import { OrderComponent } from './order/order.component';
 import { LandingComponent } from './landing/landing.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
+import { AccountComponent } from './account/account.component';
+import { AccountEditComponent } from './account/account-edit/account-edit.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LoginComponent } from './login/login.component';
     OrderComponent,
     LandingComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    AccountComponent,
+    AccountEditComponent
   ],
   imports: [
     BrowserModule,
