@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { AccountEditComponent } from './account/account-edit/account-edit.component';
 import { AccountHistoryComponent } from './account/account-history/account-history.component';
+import { DetailHistoryComponent } from './account/account-history/detail-history/detail-history.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AccountHistoryComponent } from './account/account-history/account-histo
     LoginComponent,
     AccountComponent,
     AccountEditComponent,
-    AccountHistoryComponent
+    AccountHistoryComponent,
+    DetailHistoryComponent
   ],
   imports: [
     BrowserModule,
