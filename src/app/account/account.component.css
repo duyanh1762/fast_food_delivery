@@ -22,6 +22,8 @@
   padding: 20px;
   text-align: center;
   border-radius: 4px;
+  height: 90vh;
+  width: 240px;
 }
 
 .sidebar a {
@@ -29,8 +31,6 @@
   color: #fff;
   text-decoration: none;
   margin: 10px 0;
-  font-size: 18px;
-  font-weight: bold;
 }
 
 .sidebar ul {
@@ -67,6 +67,7 @@ main {
 
   .sidebar {
     width: 95vw;
+    height: auto;
   }
   .sidebar ul li a{
     border-radius: 0;

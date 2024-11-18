@@ -6,6 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { AccountEditComponent } from './account/account-edit/account-edit.component';
+import { AccountHistoryComponent } from './account/account-history/account-history.component';
 
 const routes: Routes = [
   {path:"",component:LandingComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"cart",component:CartComponent},
   {path:"account",component:AccountComponent,children:[
     {path:"" , redirectTo:"edit",pathMatch:"full"},
-    {path:"edit",component:AccountEditComponent}
+    {path:"edit",component:AccountEditComponent},
+    {path:"history",component:AccountHistoryComponent},
   ]},
 ];
 

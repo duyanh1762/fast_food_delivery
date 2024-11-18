@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { AccountEditComponent } from './account/account-edit/account-edit.component';
+import { AccountHistoryComponent } from './account/account-history/account-history.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AccountEditComponent } from './account/account-edit/account-edit.compon
     CartComponent,
     LoginComponent,
     AccountComponent,
-    AccountEditComponent
+    AccountEditComponent,
+    AccountHistoryComponent
   ],
   imports: [
     BrowserModule,
