@@ -82,7 +82,7 @@
   text-decoration: none;
 }
 
-.login-button {
+.login-button , .signup-button {
   background-color: #28a745;
   color: #fff;
   padding: 12px;
@@ -91,7 +91,9 @@
   font-size: 16px;
   cursor: pointer;
 }
-
+.signup-button{
+  background-color: tomato;
+}
 .login-button:hover {
   background-color: #218838;
 }

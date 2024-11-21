@@ -88,7 +88,9 @@ tbody::-webkit-scrollbar-track {
 .btn:hover {
   background-color: #cc0025;
 }
-
+.order-table .detail{
+  text-align: center;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .order-table th, .order-table td {

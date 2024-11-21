@@ -6,7 +6,7 @@
     />
   </div>
   <div class="login-container">
-    <h2 class="login-title">ĐĂNG NHẬP</h2>
+    <h2 class="login-title" *ngIf="type === 'login'; else title ">ĐĂNG NHẬP</h2>
 
     <form class="login-form">
       <div class="form-group">
@@ -19,9 +19,32 @@
         <input type="password" id="password" placeholder="Nhập mật khẩu" />
       </div>
 
-      <a href="#" class="forgot-password">Bạn quên mật khẩu?</a>
+      <div class="form-group" *ngIf="type === 'login'; else repeatPass "></div>
 
-      <button type="submit" class="login-button">Đăng nhập</button>
+      <div href="#" class="forgot-password" *ngIf="type === 'login'; else userOption">Bạn quên mật khẩu?</div>
+
+      <button type="submit" class="login-button" *ngIf="type === 'login'; else submit">Đăng nhập</button>
+      <p *ngIf="type === 'login'">_________Hoặc_________</p>
+      <button *ngIf="type === 'login'"  class="signup-button" (click)="changeType()">Đăng ký</button>
     </form>
   </div>
 </div>
+
+<ng-template #title>
+  <h2 class="login-title" >ĐĂNG KÝ</h2>
+</ng-template>
+<ng-template #submit>
+  <button type="submit" class="login-button">Xác nhận</button>
+</ng-template>
+<ng-template #repeatPass>
+  <div class="form-group" >
+    <label for="password">Xác Nhận Mật khẩu *</label>
+    <input type="password" id="password" placeholder="Nhập lại mật khẩu" />
+  </div>
+</ng-template>
+<ng-template #submit>
+  <button type="submit" class="login-button">Xác nhận</button>
+</ng-template>
+<ng-template #userOption>
+  <div href="#" class="forgot-password" >Bạn đã có tài khoản?</div>
+</ng-template>
