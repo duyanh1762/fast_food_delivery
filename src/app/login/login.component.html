@@ -8,23 +8,25 @@
   <div class="login-container">
     <h2 class="login-title" *ngIf="type === 'login'; else title ">ĐĂNG NHẬP</h2>
 
-    <form class="login-form">
+    <form class="login-form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Địa chỉ email của bạn *</label>
-        <input type="email" id="email" placeholder="Nhập email của bạn" />
+        <input  type="email" id="phoneName" name="phoneName" placeholder="Nhập email của bạn" [(ngModel)]="phoneName"/>
       </div>
 
       <div class="form-group">
         <label for="password">Mật khẩu *</label>
-        <input type="password" id="password" placeholder="Nhập mật khẩu" />
+        <input  type="password" id="password" name="password" placeholder="Nhập mật khẩu" [(ngModel)]="password"/>
       </div>
 
       <div class="form-group" *ngIf="type === 'login'; else repeatPass "></div>
 
       <div href="#" class="forgot-password" *ngIf="type === 'login'; else userOption">Bạn quên mật khẩu?</div>
 
-      <button type="submit" class="login-button" *ngIf="type === 'login'; else submit">Đăng nhập</button>
+      <button type="submit" class="login-button" *ngIf="type === 'login'; else submit" >Đăng nhập</button>
+
       <p *ngIf="type === 'login'">_________Hoặc_________</p>
+
       <button *ngIf="type === 'login'"  class="signup-button" (click)="changeType()">Đăng ký</button>
     </form>
   </div>
