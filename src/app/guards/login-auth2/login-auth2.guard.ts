@@ -14,7 +14,7 @@ export class LoginAuth2Guard implements CanActivate {
       if(loginInfor === false || loginInfor === null || loginInfor === undefined || loginInfor === ""){
         return true;
       }
-      this.router.navigate(["/"]);
+      this.router.navigate(["/account"]);
       return false;
   }
 

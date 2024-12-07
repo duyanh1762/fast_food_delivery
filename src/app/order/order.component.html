@@ -1,36 +1,15 @@
 <div class="content">
   <!-- Product Categories -->
   <div class="categories" >
-    <div class="cat">GÀ RÁN</div>
-    <div class="cat">MỲ Ý</div>
-    <div class="cat">BURGER</div>
-    <div class="cat">PIZZA</div>
+    <div class="cat" *ngFor="let g of groups">{{ g.name | groupName}}</div>
   </div>
 
   <!-- Product List -->
   <section class="product-list">
-    <div class="product-card">
-      <img src="assets/images/item_burger.png" alt="Burger Bánh Mì">
-      <div class="name-product">1 Burger Bánh Mì</div>
-      <p>48.000đ</p>
-      <button class="btn">Thêm</button>
-    </div>
-    <div class="product-card">
-      <img src="assets/images/item_burger.png" alt="Burger Bánh Mì HDA">
-      <div class="name-product">Burger Bánh Mì HDA</div>
-      <p>77.000đ</p>
-      <button class="btn">Thêm</button>
-    </div>
-    <div class="product-card">
-      <img src="assets/images/item_burger.png" alt="Burger Bánh Mì HDB">
-      <div class="name-product">Burger Bánh Mì HDB</div>
-      <p>189.000đ</p>
-      <button class="btn">Thêm</button>
-    </div>
-    <div class="product-card">
-      <img src="assets/images/item_burger.png" alt="Sữa Gạo Rang Hạt Sen">
-      <div class="name-product">1 Sữa Gạo Rang Hạt Sen</div>
-      <p>36.000đ</p>
+    <div class="product-card" *ngFor="let i of items">
+      <img src="assets/images/item_burger.png" >
+      <div class="name-product">{{ i.name }}</div>
+      <p>{{ i.price }}đ</p>
       <button class="btn">Thêm</button>
     </div>
   </section>
