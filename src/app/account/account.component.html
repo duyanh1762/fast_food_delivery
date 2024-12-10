@@ -2,14 +2,14 @@
   <aside class="sidebar">
     <div class="user">
       <h3>Xin chào, Anh!</h3>
-      <p style="text-decoration: underline;margin-top: 10px;">Đăng xuất</p>
+      <p style="text-decoration: underline;margin-top: 10px;" (click)="logout()">Đăng xuất</p>
     </div>
     <div class="option">
       <ul>
-        <li><a href="#">Đơn hàng đã đặt</a></li>
-        <li><a href="#" class="active">Chi tiết tài khoản</a></li>
-        <li><a href="#">Đặt lại mật khẩu</a></li>
-        <li><a href="#">Xóa tài khoản</a></li>
+        <li><a routerLink="history" [ngClass]="{'active' : typeSelected === 'history'}" (click)="changeTypeSelected('history')">Đơn hàng đã đặt</a></li>
+        <li><a routerLink="edit" [ngClass]="{'active' : typeSelected === 'edit' }" (click)="changeTypeSelected('edit')">Chi tiết tài khoản</a></li>
+        <li><a >Đặt lại mật khẩu</a></li>
+        <li><a >Xóa tài khoản</a></li>
       </ul>
     </div>
   </aside>

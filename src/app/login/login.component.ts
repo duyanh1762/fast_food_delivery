@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         if(res.success === true){
           localStorage.setItem("login-delivery",JSON.stringify(true));
           localStorage.setItem("user-infor",JSON.stringify(res.user));
-          this.router.navigate(["/"]);
+          this.router.navigate(["/account"]);
         }else{
           alert("Sai thông tin đăng nhâp !");
         }
