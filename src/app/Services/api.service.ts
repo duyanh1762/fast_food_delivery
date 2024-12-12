@@ -20,4 +20,7 @@ export class ApiService {
   item(request:any){
     return this.http.post(this.server + "/item/fast-food",request);
   }
+  user(request:any){
+    return this.http.post(this.server+"/user",request);
+  }
 }

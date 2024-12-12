@@ -2,27 +2,27 @@
   <h1>Chi tiết tài khoản</h1>
   <form>
     <label for="last-name">Họ của bạn *</label>
-    <input type="text" id="last-name" placeholder="Duy" />
+    <input type="text" name="last-name" id="last-name" [(ngModel)]="user.lastName"/>
 
     <label for="first-name">Tên của bạn *</label>
-    <input type="text" id="first-name" placeholder="Anh" />
+    <input type="text" name="first-name" id="first-name"  [(ngModel)]="user.firstName"/>
 
     <label for="phone">Số điện thoại *</label>
-    <input type="text" id="phone" placeholder="" />
+    <input type="text" name="phone" id="phone"  [(ngModel)]="user.phone"/>
 
     <label for="email">Địa chỉ email của bạn *</label>
     <input
       type="email"
       id="email"
-      placeholder="deadpool692.0@gmail.com"
-      disabled
+      name="email"
+      [(ngModel)]="user.email"
     />
 
     <label for="gender">Giới tính *</label>
-    <select id="gender">
-      <option>Nam</option>
-      <option>Nữ</option>
-      <option>Khác</option>
+    <select id="gender" name="gender" [(ngModel)]="user.sex">
+      <option value="male">Nam</option>
+      <option value="female">Nữ</option>
+      <option value="orther">Khác</option>
     </select>
 
     <label for="dob">Ngày sinh của bạn (tùy chọn)</label>

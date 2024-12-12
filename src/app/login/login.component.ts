@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../Services/api.service';
 import { Router } from '@angular/router';
+import { parseHostBindings } from '@angular/compiler';
+import { User } from '../Models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   phoneName:string = "";
   password:string = "";
+  rePassword:string = "";
   type:string = "login";
 
   constructor(private api:ApiService,private router:Router) {
@@ -43,7 +46,52 @@ export class LoginComponent implements OnInit {
         }
       });
     }else{
-      //to do.....
+      if(this.phoneName.length < 0 || this.password.length <= 0 || this.rePassword.length <=0){
+        alert("Nhập đầy đủ thông tin trong ô trống !");
+      }else if(this.password.length < 8){
+        alert("Mật khẩu phải nhiều hơn 8 ký tự và không bao gồm khoảng trống !")
+      }else if(this.password != this.rePassword){
+        alert("Xác nhận mật khẩu không hợp lệ !");
+      }else{
+        let hashPhone = this.phoneName.split("");
+        let checked:boolean = true;
+        for(let i = 0; i < hashPhone.length; i++){
+          if(Number(hashPhone[i]) >=0 && Number(hashPhone[i]) <= 9){
+            continue;
+          }else{
+            checked = false;
+            break;
+          }
+        }
+        if(checked === false || this.phoneName.length < 10){
+          alert("Số điện thoại không hợp lệ, vui lòng nhập đúng định dạng");
+        }else{
+          let newUser:User = {
+            id:0,
+            firstName:"",
+            lastName:"",
+            phone: this.phoneName,
+            email: "",
+            sex: "",
+            birth:"",
+            status:"",
+            address:"",
+            password:this.password,
+          };
+          let request:any = {
+            mode:"create",
+            data: newUser
+          };
+          this.api.user(request).subscribe((res:any)=>{
+            if(res.id != 0 && res.id != undefined && res.id != null){
+              alert("Đăng ký thành công , vui lòng đăng nhập lại bằng tài khoản này !");
+              this.type = "login";
+            }else{
+              alert("Đã có lỗi xảy ra , vui lòng liên hệ với chúng tôi qua các cổng thông tin như Facebook , Zalo ,... !")
+            }
+          });
+        }
+      }
     }
   }
 }
