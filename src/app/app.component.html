@@ -58,7 +58,7 @@
 
 <div class="cart-icon" (click)="openCart()" *ngIf="api.cartShow === true">
   <img src="assets/images/6831.png_860.png" >
-  <span class="cart-count">3</span>
+  <span *ngIf="api.cart.length > 0" class="cart-count">{{ api.cart.length }}</span>
 </div>
 
 <router-outlet></router-outlet>

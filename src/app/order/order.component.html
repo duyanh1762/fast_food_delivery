@@ -1,7 +1,8 @@
 <div class="content">
   <!-- Product Categories -->
   <div class="categories" >
-    <div class="cat" *ngFor="let g of groups">{{ g.name | groupName}}</div>
+    <div class="cat" [ngClass]="{'choosed' : type === 'all'}" (click)="getAll()">TẤT CẢ</div>
+    <div class="cat" [ngClass]="{'choosed' : type === g.name}" (click)="getGroupItems(g.id,g.name)" *ngFor="let g of groups">{{ g.name | groupName}}</div>
   </div>
 
   <!-- Product List -->
@@ -10,7 +11,7 @@
       <img src="assets/images/item_burger.png" >
       <div class="name-product">{{ i.name }}</div>
       <p>{{ i.price }}đ</p>
-      <button class="btn">Thêm</button>
+      <button class="btn" (click)="addCart(i)">Thêm</button>
     </div>
   </section>
 </div>

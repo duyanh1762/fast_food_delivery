@@ -1,1 +1,1 @@
-Storages:["login-delivery","user-infor",]
+Storages:["login-delivery","user-infor","cart-infor"]

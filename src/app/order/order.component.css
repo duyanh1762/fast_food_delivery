@@ -24,7 +24,13 @@
   padding: 10px 15px;
   flex-shrink: 0
 }
-
+.cat:hover{
+  cursor: pointer;
+  border-bottom: #e53935 solid 1px;
+}
+.choosed{
+  border-bottom: red solid 2px;
+}
 /* Product List */
 .product-list {
   display: flex;

@@ -1,71 +1,28 @@
 <div class="content">
   <div class="cart-container">
     <h2 class="cart-title">GIỎ HÀNG CỦA TÔI</h2>
-
-    <div class="cart-content">
+    <div class="cart-content" *ngIf="items.length > 0 else notice">
       <!-- Product List -->
       <div class="cart-items">
-        <div class="cart-item">
+        <div class="cart-item" *ngFor="let ci of items">
           <img src="assets/images/item_burger.png" alt="Product Image" />
           <div class="item-info">
-            <h3>Deal 11.11</h3>
+            <h3>{{ ci.name }}</h3>
             <p><a href="#">Xem chi tiết</a></p>
             <p><a href="#">Chỉnh sửa</a> | <a href="#">Xóa</a></p>
           </div>
           <div class="item-controls">
             <button>-</button>
-            <span>1</span>
+            <span>{{ ci.num }}</span>
             <button>+</button>
-            <span class="item-price">111.000₫</span>
-          </div>
-        </div>
-
-        <div class="cart-item">
-          <img src="assets/images/item_burger.png" alt="Product Image" />
-          <div class="item-info">
-            <h3>1 Burger Bánh Mì</h3>
-            <p><a href="#">Xóa</a></p>
-          </div>
-          <div class="item-controls">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-            <span class="item-price">48.000₫</span>
-          </div>
-        </div>
-
-        <div class="cart-item">
-          <img src="assets/images/item_burger.png" alt="Product Image" />
-          <div class="item-info">
-            <h3>1 Burger Bánh Mì</h3>
-            <p><a href="#">Xóa</a></p>
-          </div>
-          <div class="item-controls">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-            <span class="item-price">48.000₫</span>
-          </div>
-        </div>
-
-        <div class="cart-item">
-          <img src="assets/images/item_burger.png" alt="Product Image" />
-          <div class="item-info">
-            <h3>1 Burger Bánh Mì</h3>
-            <p><a href="#">Xóa</a></p>
-          </div>
-          <div class="item-controls">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-            <span class="item-price">48.000₫</span>
+            <span class="item-price">{{ ci.price }}₫</span>
           </div>
         </div>
       </div>
 
       <!-- Checkout Section -->
-      <div class="checkout-summary">
-        <h3>2 MÓN</h3>
+      <div class="checkout-summary" *ngIf="items.length > 0">
+        <h3>{{ items.length }} MÓN</h3>
         <p>Bạn có Mã giảm giá?</p>
         <input type="text" placeholder="Mã giảm giá *" />
         <button class="apply-btn">Áp dụng</button>
@@ -81,3 +38,6 @@
     </div>
   </div>
 </div>
+<ng-template #notice>
+  <div class="notice"><h3 style="text-align: center; height: 100px;">Bạn chưa có món nào trong giỏ hàng !</h3></div>
+</ng-template>
