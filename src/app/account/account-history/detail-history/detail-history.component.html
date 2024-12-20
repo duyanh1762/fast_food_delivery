@@ -1,43 +1,17 @@
 <div class="list-detail">
   <div class="title" style="font-weight: 700; font-size: large">
-    Hoá đơn mã #TEST
+    Hoá đơn mã #{{ data }}
   </div>
   <div class="list-buy">
 
-    <div >
+    <div *ngFor="let d of details">
       <div class="item-buy" >
         <div class="name-note">
-          <div class="name-i">TEST1</div>
+          <div class="name-i">{{ d.name }}</div>
         </div>
         <div class="more">
           <div class="number" style="margin: 0 5px 0 5px">
-            x 1000
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div >
-      <div class="item-buy" >
-        <div class="name-note">
-          <div class="name-i">TEST2</div>
-        </div>
-        <div class="more">
-          <div class="number" style="margin: 0 5px 0 5px">
-            x 1000
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div >
-      <div class="item-buy" >
-        <div class="name-note">
-          <div class="name-i">TEST3</div>
-        </div>
-        <div class="more">
-          <div class="number" style="margin: 0 5px 0 5px">
-            x 1000
+            x {{ d.num }}
           </div>
         </div>
       </div>
@@ -46,7 +20,7 @@
   </div>
   <div class="bill">
     <div class="bill-title">Tổng tiền:</div>
-    <div class="money">10000 đ</div>
+    <div class="money">{{ total | moneyTransform}} đ</div>
   </div>
 </div>
 

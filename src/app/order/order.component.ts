@@ -38,10 +38,6 @@ export class OrderComponent implements OnInit {
   }
   getGroupItems(idG:number,type:string){
     this.items = [];
-    let reuest:any = {
-      mode:"get",
-      data:""
-    };
     this.itemLU.forEach((i:Item)=>{
       if(i.groupID === idG){
         this.items.push(i);

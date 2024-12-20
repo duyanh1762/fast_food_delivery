@@ -10,7 +10,7 @@
     <div class="product-card" *ngFor="let i of items">
       <img src="assets/images/item_burger.png" >
       <div class="name-product">{{ i.name }}</div>
-      <p>{{ i.price }}đ</p>
+      <p>{{ i.price | moneyTransform}}đ</p>
       <button class="btn" (click)="addCart(i)">Thêm</button>
     </div>
   </section>

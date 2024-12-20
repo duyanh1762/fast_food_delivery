@@ -3,5 +3,4 @@ export class BillDetail{
   itemID: number;
   num: number;
   billOrderID:number;
-
 }

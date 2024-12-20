@@ -15,6 +15,7 @@ import { AccountEditComponent } from './account/account-edit/account-edit.compon
 import { AccountHistoryComponent } from './account/account-history/account-history.component';
 import { DetailHistoryComponent } from './account/account-history/detail-history/detail-history.component';
 import { GroupNamePipe } from './pipe/group-name/group-name.pipe';
+import { MoneyTransformPipe } from './pipe/money-pipe/money-transform.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { GroupNamePipe } from './pipe/group-name/group-name.pipe';
     AccountEditComponent,
     AccountHistoryComponent,
     DetailHistoryComponent,
-    GroupNamePipe
+    GroupNamePipe,
+    MoneyTransformPipe,
   ],
   imports: [
     BrowserModule,

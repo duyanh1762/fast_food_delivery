@@ -3,41 +3,21 @@
   <table class="order-table">
     <thead>
       <tr>
-        <th>Mã hóa đơn</th>
-        <th>Ngày giờ</th>
-        <th>Địa chỉ</th>
-        <th class="detail">Hành động</th>
+        <th class="col1">Mã đơn</th>
+        <th class="col2">Ngày giờ</th>
+        <th class="col3">Địa chỉ</th>
+        <th class="col4">Trạng thái</th>
+        <th class="detail col5">Hành động</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>#12345</td>
-        <td>10/12/2024 14:00</td>
-        <td>123 Đường ABC, Hà Nội</td>
-        <td class="detail">
-          <button class="btn" (click)="openDetail()">Xem chi tiết</button>
-        </td>
-      </tr>
-    </tbody>
-
-    <tbody>
-      <tr>
-        <td>#12345</td>
-        <td>10/12/2024 14:00</td>
-        <td>123 Đường ABC, Hà Nội</td>
-        <td class="detail">
-          <button class="btn" (click)="openDetail()">Xem chi tiết</button>
-        </td>
-      </tr>
-    </tbody>
-
-    <tbody>
-      <tr>
-        <td>#12345</td>
-        <td>10/12/2024 14:00</td>
-        <td>123 Đường ABC, Hà Nội</td>
-        <td class="detail">
-          <button class="btn" (click)="openDetail()">Xem chi tiết</button>
+      <tr *ngFor="let o of orders">
+        <td class="col1">#{{ o.id }}</td>
+        <td class="col2">{{ api.dateTransform(o.date) }}</td>
+        <td class="col3">{{ o.address }}</td>
+        <td class="col4">{{ api.getStatus(o.status) }}</td>
+        <td class="detail col5" >
+          <button class="btn" (click)="openDetail(o.id)">Xem chi tiết</button>
         </td>
       </tr>
     </tbody>

@@ -84,7 +84,15 @@ tbody::-webkit-scrollbar-track {
   cursor: pointer;
   font-size: 14px;
 }
-
+.col1,.col5{
+  width: 10%;
+}
+.col2,.col4{
+  width: 20%;
+}
+.col3{
+  width: 40%;
+}
 .btn:hover {
   background-color: #cc0025;
 }
