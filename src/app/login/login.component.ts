@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
             phone: this.phoneName,
             email: "",
             sex: "",
-            birth:"",
+            birth:"01-01-1960",
             status:"",
             address:"",
             password:this.password,

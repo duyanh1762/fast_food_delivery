@@ -1,6 +1,6 @@
 <main class="form-content">
   <h1>Chi tiết tài khoản</h1>
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <label for="last-name">Họ của bạn *</label>
     <input type="text" name="last-name" id="last-name" [(ngModel)]="user.lastName"/>
 
@@ -27,14 +27,14 @@
 
     <label for="dob">Ngày sinh của bạn (tùy chọn)</label>
     <div class="dob">
-      <select>
-        <option>Ngày</option>
+      <select name="day" id="day" [(ngModel)]="birthDay.day">
+        <option *ngFor="let d of days" [value]="d">Ngày {{ d }}</option>
       </select>
-      <select>
-        <option>Tháng</option>
+      <select name="month" id="month" [(ngModel)]="birthDay.month" (change)="updateDays()">
+        <option *ngFor="let m of months" [value]="m.value">{{ m.name }}</option>
       </select>
-      <select>
-        <option>Năm</option>
+      <select name="year" id="year" [(ngModel)]="birthDay.year" (change)="updateDays()">
+        <option *ngFor="let y of years" [value]="y">Năm {{ y }}</option>
       </select>
     </div>
 
