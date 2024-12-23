@@ -56,11 +56,16 @@ export class LoginComponent implements OnInit {
         let hashPhone = this.phoneName.split("");
         let checked:boolean = true;
         for(let i = 0; i < hashPhone.length; i++){
-          if(Number(hashPhone[i]) >=0 && Number(hashPhone[i]) <= 9){
-            continue;
-          }else{
+          if( i === 0 && Number(hashPhone[i]) > 0){
+            alert("Số điện thoại không hợp lệ (Số đầu tiên khác 0) !");
             checked = false;
-            break;
+          }else{
+            if(Number(hashPhone[i]) >=0 && Number(hashPhone[i]) <= 9){
+              continue;
+            }else{
+              checked = false;
+              break;
+            }
           }
         }
         if(checked === false || this.phoneName.length < 10){

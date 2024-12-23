@@ -58,28 +58,51 @@ export class AccountEditComponent implements OnInit {
   onSubmit(){
     let day:string = "";
     let month:string = "";
-    if(this.birthDay.day < 10){
-      day = `0${this.birthDay.day}`;
+    let hashPhone = this.user.phone.split("");
+    let checked:boolean = true;
+    if(hashPhone.length < 10){
+      alert("Số điện thoại không đúng định dạng (ít nhất 10 số) !");
     }else{
-      day = this.birthDay.day.toString();
-    };
-    if(this.birthDay.month < 10){
-      month = `0${this.birthDay.month}`;
-    }else{
-      month = this.birthDay.month.toString();
-    };
-    this.user.birth = `${day}-${month}-${this.birthDay.year}`;
-    let request:DataRequest = {
-      mode:"update",
-      data:this.user
-    };
-    this.api.user(request).subscribe((res:any)=>{
-      if(res.affected === 1){
-        alert("Cập nhật thành công");
-        localStorage.setItem("user-infor",JSON.stringify(this.user));
-      }else{
-        alert("Cập nhật thất bại, đã có lỗi xảy ra !");
+      for(let i = 0;i<hashPhone.length;i++){
+        if( i === 0 && Number(hashPhone[i]) > 0){
+          alert("Số điện thoại không đúng định dạng (Số đầu tiên khác 0) !");
+          checked = false;
+          break;
+        }else{
+          if(Number(hashPhone[i]) >=0 && Number(hashPhone[i]) <= 9){
+            continue;
+          }else{
+            checked = false;
+            alert("Số điện thoại không đúng định dạng (Xuất hiện ký tự không phải sô) !");
+            break;
+          };
+        };
       }
-    });
+      if(checked === true){
+        if(this.birthDay.day < 10){
+          day = `0${this.birthDay.day}`;
+        }else{
+          day = this.birthDay.day.toString();
+        };
+        if(this.birthDay.month < 10){
+          month = `0${this.birthDay.month}`;
+        }else{
+          month = this.birthDay.month.toString();
+        };
+        this.user.birth = `${day}-${month}-${this.birthDay.year}`;
+        let request:DataRequest = {
+          mode:"update",
+          data:this.user
+        };
+        this.api.user(request).subscribe((res:any)=>{
+          if(res.affected === 1){
+            alert("Cập nhật thành công");
+            localStorage.setItem("user-infor",JSON.stringify(this.user));
+          }else{
+            alert("Cập nhật thất bại, đã có lỗi xảy ra !");
+          }
+        });
+      }
+    }
   }
 }
