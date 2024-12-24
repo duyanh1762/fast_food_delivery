@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   password:string = "";
   rePassword:string = "";
   type:string = "login";
+  checkPass:boolean = true;
+  checkPhone:boolean = true;
 
   constructor(private api:ApiService,private router:Router) {
     this.api.cartShow = false;
@@ -31,6 +33,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
+    this.checkPass = true;
+    this.checkPhone = true;
     if(this.type === "login"){
       let request = {
         phoneName: this.phoneName,
@@ -48,10 +52,14 @@ export class LoginComponent implements OnInit {
     }else{
       if(this.phoneName.length < 0 || this.password.length <= 0 || this.rePassword.length <=0){
         alert("Nhập đầy đủ thông tin trong ô trống !");
+        this.checkPass = false;
+        this.checkPhone = false;
       }else if(this.password.length < 8){
         alert("Mật khẩu phải nhiều hơn 8 ký tự và không bao gồm khoảng trống !")
+        this.checkPass = false;
       }else if(this.password != this.rePassword){
         alert("Xác nhận mật khẩu không hợp lệ !");
+        this.checkPass = false;
       }else{
         let hashPhone = this.phoneName.split("");
         let checked:boolean = true;
@@ -59,11 +67,13 @@ export class LoginComponent implements OnInit {
           if( i === 0 && Number(hashPhone[i]) > 0){
             alert("Số điện thoại không hợp lệ (Số đầu tiên khác 0) !");
             checked = false;
+            this.checkPhone = false;
           }else{
             if(Number(hashPhone[i]) >=0 && Number(hashPhone[i]) <= 9){
               continue;
             }else{
               checked = false;
+              this.checkPhone = false;
               break;
             }
           }

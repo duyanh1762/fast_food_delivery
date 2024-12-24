@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../Services/api.service';
+import { User } from '../Models/user';
 
 @Component({
   selector: 'app-account',
@@ -9,10 +10,12 @@ import { ApiService } from '../Services/api.service';
 })
 export class AccountComponent implements OnInit {
   typeSelected:string = "edit";
+  user:User;
 
   constructor(private router:Router , private api:ApiService) { }
 
   ngOnInit(): void {
+    this.load();
   }
 
   logout(){
@@ -24,5 +27,8 @@ export class AccountComponent implements OnInit {
   }
   changeTypeSelected(type:string){
     this.typeSelected = type;
+  }
+  load(){
+    this.user = JSON.parse(localStorage.getItem("user-infor") || "{}");
   }
 }

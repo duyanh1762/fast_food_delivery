@@ -58,7 +58,9 @@ main {
   flex: 2;
   padding: 20px;
 }
-
+li a:hover{
+  cursor: pointer;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .content {

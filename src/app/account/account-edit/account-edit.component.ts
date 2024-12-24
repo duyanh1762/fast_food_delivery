@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/Services/api.service';
 })
 export class AccountEditComponent implements OnInit {
   constructor(private api:ApiService) { }
+  checked:boolean = true;
   user:User;
   birthDay = {
     day:0,
@@ -59,26 +60,27 @@ export class AccountEditComponent implements OnInit {
     let day:string = "";
     let month:string = "";
     let hashPhone = this.user.phone.split("");
-    let checked:boolean = true;
+    this.checked = true
     if(hashPhone.length < 10){
       alert("Số điện thoại không đúng định dạng (ít nhất 10 số) !");
+      this.checked = false;
     }else{
       for(let i = 0;i<hashPhone.length;i++){
         if( i === 0 && Number(hashPhone[i]) > 0){
           alert("Số điện thoại không đúng định dạng (Số đầu tiên khác 0) !");
-          checked = false;
+          this.checked = false;
           break;
         }else{
           if(Number(hashPhone[i]) >=0 && Number(hashPhone[i]) <= 9){
             continue;
           }else{
-            checked = false;
+            this.checked = false;
             alert("Số điện thoại không đúng định dạng (Xuất hiện ký tự không phải sô) !");
             break;
           };
         };
       }
-      if(checked === true){
+      if(this.checked === true){
         if(this.birthDay.day < 10){
           day = `0${this.birthDay.day}`;
         }else{

@@ -11,12 +11,12 @@
     <form class="login-form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Số điện thoại của bạn *</label>
-        <input  type="tel" id="phoneName" name="phoneName" placeholder="Nhập số điện thoại"  pattern="[0-9]{10}" maxlength="10" [(ngModel)]="phoneName"/>
+        <input  type="tel" id="phoneName" name="phoneName" placeholder="Nhập số điện thoại" [ngClass]="{'warning':checkPhone === false}"  pattern="[0-9]{10}" maxlength="10" [(ngModel)]="phoneName"/>
       </div>
 
       <div class="form-group">
         <label for="password">Mật khẩu *</label>
-        <input  type="password" id="password" name="password" placeholder="Nhập mật khẩu" [(ngModel)]="password"/>
+        <input  type="password" id="password" name="password" placeholder="Nhập mật khẩu" [ngClass]="{'warning':checkPass === false}" [(ngModel)]="password"/>
       </div>
 
       <div class="form-group" *ngIf="type === 'login'; else repeatPass "></div>
@@ -41,7 +41,7 @@
 <ng-template #repeatPass>
   <div class="form-group" >
     <label for="password">Xác Nhận Mật khẩu *</label>
-    <input type="password" id="password" placeholder="Nhập lại mật khẩu" [(ngModel)]="rePassword"/>
+    <input type="password" id="password" placeholder="Nhập lại mật khẩu" [ngClass]="{'warning':checkPass === false}" [(ngModel)]="rePassword"/>
   </div>
 </ng-template>
 <ng-template #submit>
