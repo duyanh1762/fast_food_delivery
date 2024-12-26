@@ -8,14 +8,14 @@
           <img src="assets/images/item_burger.png" alt="Product Image" />
           <div class="item-info">
             <h3>{{ ci.name }}</h3>
-            <p><a href="#">Xem chi tiết</a></p>
-            <p><a href="#">Chỉnh sửa</a> | <a href="#">Xóa</a></p>
+            <!-- <p><a href="#">Xem chi tiết</a></p> -->
+            <p><a >Chỉnh sửa</a> | <a (click)="changeQuantity(ci,'delete')">Xóa</a></p>
           </div>
           <div class="item-controls">
-            <button>-</button>
+            <button (click)="changeQuantity(ci,'minus')">-</button>
             <span>{{ ci.num }}</span>
-            <button>+</button>
-            <span class="item-price">{{ ci.price }}₫</span>
+            <button (click)="changeQuantity(ci,'plus')">+</button>
+            <span class="item-price">{{ ci.price | moneyTransform }}₫</span>
           </div>
         </div>
       </div>
@@ -24,13 +24,14 @@
       <div class="checkout-summary" *ngIf="items.length > 0">
         <h3>{{ items.length }} MÓN</h3>
         <p>Bạn có Mã giảm giá?</p>
-        <input type="text" placeholder="Mã giảm giá *" />
-        <button class="apply-btn">Áp dụng</button>
+        <input #discountInput type="text" placeholder="Mã giảm giá *" />
+        <button class="apply-btn" (click)="addDiscount()">Áp dụng</button>
 
         <div class="price-details">
-          <p>Tổng đơn hàng <span>159.000₫</span></p>
-          <p>Phí giao hàng <span>10.000₫</span></p>
-          <p class="total">Tổng thanh toán <span>169.000₫</span></p>
+          <p>Tổng đơn hàng <span>{{ itemMoney | moneyTransform }}₫</span></p>
+          <p>Phí giao hàng <span>+{{ deliveryMoney | moneyTransform }}₫</span></p>
+          <p *ngIf="discount > 0">Giảm giá <span>-{{ discount | moneyTransform }}₫</span></p>
+          <p class="total">Tổng thanh toán <span>{{ (itemMoney + deliveryMoney - discount) | moneyTransform }}₫</span></p>
         </div>
 
         <button class="checkout-btn">Thanh toán 169.000₫</button>

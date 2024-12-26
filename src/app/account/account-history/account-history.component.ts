@@ -13,6 +13,7 @@ import { Bill } from 'src/app/Models/bill';
 })
 export class AccountHistoryComponent implements OnInit {
   user:User;
+  ordersLU:Array<Bill> = [];
   orders:Array<Bill> = [];
 
   constructor(private bsModal:BsModalService,public api:ApiService) { }
@@ -36,7 +37,19 @@ export class AccountHistoryComponent implements OnInit {
       data:this.user.id
     };
     this.api.order(request).subscribe((res:any)=>{
-      this.orders = res;
+      this.orders = [...res];
+      this.ordersLU = [...res];
     });
+  }
+  getFilterOrder(e:Event){
+    this.orders = [];
+    let select= e.target as HTMLSelectElement;
+    if(select.value === "all"){
+      this.orders = this.ordersLU;
+    }else{
+      this.orders = this.ordersLU.filter((b:Bill)=>{
+        return b.status === select.value;
+      });
+    }
   }
 }

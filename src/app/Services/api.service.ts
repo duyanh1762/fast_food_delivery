@@ -63,7 +63,7 @@ export class ApiService {
     return `${formattedDate} ${formattedTime}`;
   }
 
-  getStatus(type:string):string{ //not_confirm -> confirm -> delevering -> pay
+  getStatus(type:string):string{ //not_confirm -> confirm -> delivering -> pay
     if(type === "pay"){
       return "Đã thanh toán";
     } else if(type === "confirm"){

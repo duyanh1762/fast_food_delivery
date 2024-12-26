@@ -1,5 +1,16 @@
 <main class="history-content">
   <h1>Lịch Sử Đơn Hàng</h1>
+  <div class="filter">
+    <div class="status-filter">
+      <select (change)="getFilterOrder($event)">
+        <option value="all">Tất cả</option>
+        <option value="not_confirm">Chờ xác nhận</option>
+        <option value="confirm">Đã xác nhận</option>
+        <option value="delivering">Đang giao</option>
+        <option value="pay">Đã thanh toán</option>
+      </select>
+    </div>
+  </div>
   <table class="order-table">
     <thead>
       <tr>

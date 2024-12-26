@@ -75,6 +75,7 @@
 
 .item-controls {
   display: flex;
+  width: 22%;
   align-items: center;
   gap: 10px;
 }
@@ -154,7 +155,9 @@ input[type="text"] {
   cursor: pointer;
   margin-top: 10px;
 }
-
+.item-info a:hover{
+  cursor: pointer;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .cart-content {
