@@ -9,7 +9,7 @@
           <div class="item-info">
             <h3>{{ ci.name }}</h3>
             <!-- <p><a href="#">Xem chi tiết</a></p> -->
-            <p><a >Chỉnh sửa</a> | <a (click)="changeQuantity(ci,'delete')">Xóa</a></p>
+            <p><a (click)="addNote(ci)">Ghi chú</a> | <a (click)="changeQuantity(ci,'delete')">Xóa</a></p>
           </div>
           <div class="item-controls">
             <button (click)="changeQuantity(ci,'minus')">-</button>

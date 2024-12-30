@@ -4,10 +4,11 @@
   </div>
   <div class="list-buy">
 
-    <div *ngFor="let d of details">
+    <div *ngFor="let d of details" [ngClass]="{'noted' : d.des.length >= 5}">
       <div class="item-buy" >
         <div class="name-note">
           <div class="name-i">{{ d.name }}</div>
+          <div class="note-i" *ngIf="d.des.length > 1">{{ d.des }}</div>
         </div>
         <div class="more">
           <div class="number" style="margin: 0 5px 0 5px">

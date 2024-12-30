@@ -4,5 +4,6 @@ export interface CartItem{
   name:string,
   price:number,
   num:number,
+  des:string,
   billOrderID:number;
 }

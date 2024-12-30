@@ -11,6 +11,7 @@ interface DetailItem {
   billOrderID: number;
   name: string;
   total: number;
+  des:string,
   price: number;
 }
 
@@ -47,6 +48,7 @@ export class DetailHistoryComponent implements OnInit {
               let totalItem: number = i.price * d.num;
               this.details.push({
                 ...d,
+                des:d.des,
                 total: totalItem,
                 name: i.name,
                 price: i.price,

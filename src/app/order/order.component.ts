@@ -68,6 +68,7 @@ export class OrderComponent implements OnInit {
         name:i.name,
         price:i.price,
         num:1,
+        des:"",
         billOrderID:0
       };
       this.api.cart.push(newCI);

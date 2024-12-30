@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../Services/api.service';
 import { CartItem } from '../Interface/cart_item';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { NoteComponent } from './note/note.component';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,7 @@ export class CartComponent implements OnInit {
   deliveryMoney:number = 50000;
   discounts:Array<any> = [];
 
-  constructor(public api:ApiService) {
+  constructor(public api:ApiService,private bs:BsModalService) {
     this.api.cartShow = false;
     this.discounts = [
       {id:1,code:"DUYANHDEPTRAI1706",number:10,price:10000},
@@ -79,5 +81,9 @@ export class CartComponent implements OnInit {
     this.getItemMoney();
     this.api.cart = this.items;
     localStorage.setItem("cart-infor",JSON.stringify(this.items));
+  }
+
+  addNote(item:CartItem){
+    this.bs.show(NoteComponent);
   }
 }

@@ -16,6 +16,7 @@ import { AccountHistoryComponent } from './account/account-history/account-histo
 import { DetailHistoryComponent } from './account/account-history/detail-history/detail-history.component';
 import { GroupNamePipe } from './pipe/group-name/group-name.pipe';
 import { MoneyTransformPipe } from './pipe/money-pipe/money-transform.pipe';
+import { NoteComponent } from './cart/note/note.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MoneyTransformPipe } from './pipe/money-pipe/money-transform.pipe';
     DetailHistoryComponent,
     GroupNamePipe,
     MoneyTransformPipe,
+    NoteComponent,
   ],
   imports: [
     BrowserModule,
