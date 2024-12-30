@@ -96,7 +96,7 @@
 }
 
 .checkout-summary {
-  height: 320px;
+  height: 360px;
   flex: 1;
   background-color: #fff;
   padding: 20px;
@@ -157,6 +157,10 @@ input[type="text"] {
 }
 .item-info a:hover{
   cursor: pointer;
+}
+.note{
+  font-style: italic;
+  font-size: 14px;
 }
 /* Responsive */
 @media (max-width: 768px) {

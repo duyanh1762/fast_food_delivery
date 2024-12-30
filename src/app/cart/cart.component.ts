@@ -3,6 +3,7 @@ import { ApiService } from '../Services/api.service';
 import { CartItem } from '../Interface/cart_item';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { NoteComponent } from './note/note.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @Component({
   selector: 'app-cart',
@@ -84,6 +85,26 @@ export class CartComponent implements OnInit {
   }
 
   addNote(item:CartItem){
-    this.bs.show(NoteComponent);
+    this.bs.show(NoteComponent,{
+      initialState:{
+        item : item
+      }
+    }).content?.eventOut.subscribe((res:any)=>{
+      this.items.forEach((i:CartItem)=>{
+        if(i.itemID === item.itemID){
+          i.des = res;
+        }
+      });
+      this.api.cart = this.items;
+      localStorage.setItem("cart-infor",JSON.stringify(this.items));
+    });
+  }
+
+  confirmOrder(){
+    this.bs.show(ConfirmComponent,{
+      initialState:{
+        items:this.items
+      }
+    });
   }
 }

@@ -2,13 +2,14 @@
   <div class="cart-container">
     <h2 class="cart-title">GIỎ HÀNG CỦA TÔI</h2>
     <div class="cart-content" *ngIf="items.length > 0 else notice">
+
       <!-- Product List -->
       <div class="cart-items">
         <div class="cart-item" *ngFor="let ci of items">
           <img src="assets/images/item_burger.png" alt="Product Image" />
           <div class="item-info">
             <h3>{{ ci.name }}</h3>
-            <!-- <p><a href="#">Xem chi tiết</a></p> -->
+            <p class="note" *ngIf="ci.des != '' "> {{ ci.des }}</p>
             <p><a (click)="addNote(ci)">Ghi chú</a> | <a (click)="changeQuantity(ci,'delete')">Xóa</a></p>
           </div>
           <div class="item-controls">
@@ -34,11 +35,12 @@
           <p class="total">Tổng thanh toán <span>{{ (itemMoney + deliveryMoney - discount) | moneyTransform }}₫</span></p>
         </div>
 
-        <button class="checkout-btn">Thanh toán 169.000₫</button>
+        <button class="checkout-btn" (click)="confirmOrder()">Giao hàng {{ (itemMoney + deliveryMoney - discount) | moneyTransform  }}₫</button>
       </div>
     </div>
   </div>
 </div>
+
 <ng-template #notice>
   <div class="notice"><h3 style="text-align: center; height: 100px;">Bạn chưa có món nào trong giỏ hàng !</h3></div>
 </ng-template>
