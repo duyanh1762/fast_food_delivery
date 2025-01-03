@@ -96,7 +96,7 @@ header {
   list-style: none;
 }
 
-.menu-section ul li {
+.menu-section ul li,.menu-section ul li a{
   padding: 10px 0;
   color: #333;
   cursor: pointer;
@@ -105,8 +105,9 @@ header {
   font-size: 14px;
 }
 
-.menu-section ul li:hover {
+.menu-section ul li:hover , .menu-section ul li a:hover {
   color: #d80000;
+  text-decoration: none;
 }
 footer {
   background-color: #333;
