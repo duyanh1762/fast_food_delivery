@@ -35,6 +35,10 @@ export class ApiService {
     return this.http.post(this.server + "/bill-order-detail" , request);
   }
 
+  items(request:DataRequest){
+    return this.http.post(this.server + "/item",request);
+  }
+
   getCurrentDateTime(): string {
     const date = new Date();
     const year = date.getFullYear();

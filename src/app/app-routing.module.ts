@@ -9,6 +9,7 @@ import { AccountEditComponent } from './account/account-edit/account-edit.compon
 import { AccountHistoryComponent } from './account/account-history/account-history.component';
 import { LoginAuthGuard } from './guards/login-auth/login-auth.guard';
 import { LoginAuth2Guard } from './guards/login-auth2/login-auth2.guard';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {path:"",component:LandingComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
     {path:"edit",component:AccountEditComponent},
     {path:"history",component:AccountHistoryComponent},
   ],canActivate:[LoginAuthGuard]},
+  {path:"test",component:TestComponent},
 ];
 
 @NgModule({

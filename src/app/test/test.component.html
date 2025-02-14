@@ -1,0 +1,8 @@
+<div class="content">
+  <div class="box" *ngFor="let i of items">
+    <input *ngIf="i.isChosen === true" type="checkbox" [value]="i.name" [name]="i.name" checked (change)="updateStatus(i)">
+    <input *ngIf="i.isChosen === false" type="checkbox" [value]="i.name" [name]="i.name" (change)="updateStatus(i)">
+    <label for="">{{ i.name }}</label>
+  </div>
+  <button (click)="confirm()">Confirm</button>
+</div>
