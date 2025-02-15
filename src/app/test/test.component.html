@@ -4,5 +4,5 @@
     <input *ngIf="i.isChosen === false" type="checkbox" [value]="i.name" [name]="i.name" (change)="updateStatus(i)">
     <label for="">{{ i.name }}</label>
   </div>
-  <button (click)="confirm()">Confirm</button>
+  <button (click)="testUpdateStatus()">Confirm</button>
 </div>

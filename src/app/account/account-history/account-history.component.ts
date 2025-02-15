@@ -40,6 +40,18 @@ export class AccountHistoryComponent implements OnInit {
       this.orders = [...res];
       this.ordersLU = [...res];
     });
+    this.api.getUpdateFromServe((data:Bill)=>{
+      this.ordersLU.forEach((b:Bill)=>{
+        if(data.id === b.id){
+          b.status = data.status;
+        }
+      });
+      this.orders.forEach((b:Bill)=>{
+        if(data.id === b.id){
+          b.status = data.status;
+        }
+      });
+    });
   }
   getFilterOrder(e:Event){
     this.orders = [];

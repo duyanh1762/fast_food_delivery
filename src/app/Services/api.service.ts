@@ -3,40 +3,42 @@ import { Injectable } from '@angular/core';
 import { BillDetail } from '../Models/bill_detail';
 import { CartItem } from '../Interface/cart_item';
 import { DataRequest } from '../Interface/DataRequest';
+import { io } from 'socket.io-client';
+import { Bill } from '../Models/bill';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  cartShow:boolean = true;
-  cart:Array<CartItem> = [];
-  server:string = "http://localhost:3000";
+  cartShow: boolean = true;
+  cart: Array<CartItem> = [];
+  server: string = 'http://localhost:3000';
 
-  constructor(private http:HttpClient) {
-    this.cart = JSON.parse(localStorage.getItem("cart-infor") || "[]");
-  }
-
-  login(request:any){
-   return this.http.post(this.server + "/login-authen/fast-food",request);
-  }
-  group(request:DataRequest){
-    return this.http.post(this.server + "/group/fast-food",request);
-  }
-  item(request:DataRequest){
-    return this.http.post(this.server + "/item/fast-food",request);
-  }
-  user(request:DataRequest){
-    return this.http.post(this.server+"/user",request);
-  }
-  order(request:DataRequest){
-    return this.http.post(this.server + '/bill-order',request);
-  }
-  orderDetail(request:DataRequest){
-    return this.http.post(this.server + "/bill-order-detail" , request);
+  constructor(private http: HttpClient) {
+    this.cart = JSON.parse(localStorage.getItem('cart-infor') || '[]');
   }
 
-  items(request:DataRequest){
-    return this.http.post(this.server + "/item",request);
+  login(request: any) {
+    return this.http.post(this.server + '/login-authen/fast-food', request);
+  }
+  group(request: DataRequest) {
+    return this.http.post(this.server + '/group/fast-food', request);
+  }
+  item(request: DataRequest) {
+    return this.http.post(this.server + '/item/fast-food', request);
+  }
+  user(request: DataRequest) {
+    return this.http.post(this.server + '/user', request);
+  }
+  order(request: DataRequest) {
+    return this.http.post(this.server + '/bill-order', request);
+  }
+  orderDetail(request: DataRequest) {
+    return this.http.post(this.server + '/bill-order-detail', request);
+  }
+
+  items(request: DataRequest) {
+    return this.http.post(this.server + '/item', request);
   }
 
   getCurrentDateTime(): string {
@@ -67,16 +69,31 @@ export class ApiService {
     return `${formattedDate} ${formattedTime}`;
   }
 
-  getStatus(type:string):string{ //not_confirm -> confirm -> delivering -> pay
-    if(type === "pay"){
-      return "Đã thanh toán";
-    } else if(type === "confirm"){
-      return "Đã xác nhận";
-    } else if(type === "not_confirm"){
-      return "Chờ xác nhận";
-    } else if(type === "delivering"){
-      return "Đang giao";
+  getStatus(type: string): string {
+    //not_confirm -> confirm -> delivering -> pay
+    if (type === 'pay') {
+      return 'Đã thanh toán';
+    } else if (type === 'confirm') {
+      return 'Đã xác nhận';
+    } else if (type === 'not_confirm') {
+      return 'Chờ xác nhận';
+    } else if (type === 'delivering') {
+      return 'Đang giao';
     }
-    return "";
+    return '';
+  }
+
+  private socket = io('http://localhost:3000'); // URL của WebSocket server (NestJS)
+
+  sendInforUpdate(order: Bill) {
+    this.socket.emit('update_status', order); // Gửi thông điệp lên server
+  }
+
+  getUpdateFromServe(callback: (data: any) => void) {
+    this.socket.on('update_status_lated', callback); // Lắng nghe các cập nhật từ server
+  }
+
+  removeAccents(str: string): string {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 }

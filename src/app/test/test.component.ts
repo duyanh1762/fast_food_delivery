@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../Services/api.service';
+import { Bill } from '../Models/bill';
 
 interface ItemEdit{
   id:number;
@@ -64,6 +65,17 @@ export class TestComponent implements OnInit {
         console.log(uI);
       }
     });
+  }
+
+  testUpdateStatus(){
+    let uBill:Bill = {
+      id:6,
+      date:this.api.getCurrentDateTime(),
+      userID:1,
+      address:'123',
+      status:"pay"
+    };
+    this.api.sendInforUpdate(uBill);
   }
 
 }
